@@ -1,0 +1,31 @@
+[Defines]
+  INF_VERSION                    = 0x0001001B
+  BASE_NAME                      = BluelineBootMemoryDxe
+  FILE_GUID                      = B1C10845-7A3E-4D59-8E21-6F0B2C9D4A17
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = BluelineBootMemoryDxeEntry
+
+[Sources]
+  BluelineBootMemoryDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  DebugLib
+  DxeServicesTableLib
+  FdtLib
+  HobLib
+  MemoryAllocationLib
+  UefiDriverEntryPoint
+
+[Guids]
+  gSiliciumEntryArgHobGuid                      ## CONSUMES
+
+[Depex]
+  TRUE

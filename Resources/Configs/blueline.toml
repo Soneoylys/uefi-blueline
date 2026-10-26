@@ -1,0 +1,32 @@
+#
+# Boot Shim Configs
+#
+[boot_shim]
+requires_kernel_header = true
+
+#
+# UEFI FD Configs
+#
+[uefi_fd]
+base = 0x9FC00000
+size = 0x300000
+
+#
+# Android Boot Image Kernel Configs
+#
+[boot_image_kernel]
+kernel_compression = "gzip"
+append_dtb         = true
+
+#
+# Android Boot Image Configs
+#
+# The stock Pixel 3 boot image (SP1A.210812.016.C2) uses base 0, kernel 0x8000, ramdisk 0x1000000,
+# tags 0x100 and 4 KiB pages. Header version 1 keeps the device tree appended to the kernel.
+[boot_image]
+header_version = 1
+base           = 0x00000000
+kernel_offset  = 0x00008000
+ramdisk_offset = 0x01000000
+tags_offset    = 0x00000100
+pagesize       = 4096
