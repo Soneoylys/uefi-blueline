@@ -3,6 +3,9 @@
 #
 [boot_shim]
 requires_kernel_header = true
+# The stock ABL decompresses the kernel to a 2 MiB-aligned address + 0x80000 and refuses any other
+# text_offset with EFI_INVALID_PARAMETER ("Kernel TextOffset does not match", LinuxLoader of b1c1-0.4-7617406).
+text_offset = 0x80000
 
 #
 # UEFI FD Configs

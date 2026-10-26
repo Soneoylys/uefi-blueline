@@ -3,8 +3,15 @@ _Head:
   b     _Start          /* Jump to the real code */
 
 #if REQUIRES_KERNEL_HEADER == 1
+/*
+ * The shim is position independent; text_offset only tells the bootloader where to place the image.
+ * The Pixel 3 ABL (b1c1-0.4) refuses any value but 0x80000 ("Kernel TextOffset does not match").
+ */
+#ifndef TEXT_OFFSET
+#define TEXT_OFFSET FD_BASE
+#endif
 _StackBase:
-  .quad FD_BASE         /* Text Offset */
+  .quad TEXT_OFFSET     /* Text Offset */
 
 _StackSize:
   .quad FD_SIZE + (_Payload - _Head) /* Complete shim and payload */
