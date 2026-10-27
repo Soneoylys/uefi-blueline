@@ -93,6 +93,7 @@
   UniXNUPkg/Driver/UniXNURamDiskDxe/UniXNURamDiskDxe.inf
   DarwinBootPkg/Driver/DarwinBoot.inf
   bluelinePkg/Drivers/BluelineBootMemoryDxe/BluelineBootMemoryDxe.inf
+  bluelinePkg/Drivers/BluelineKeyInputDxe/BluelineKeyInputDxe.inf
 
 [LibraryClasses]
   UniXNULib|UniXNUPkg/Library/UniXNULib/UniXNULib.inf

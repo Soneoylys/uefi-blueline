@@ -1,0 +1,36 @@
+[Defines]
+  INF_VERSION                    = 0x0001001B
+  BASE_NAME                      = BluelineKeyInputDxe
+  FILE_GUID                      = 7E3B1C42-845A-4B0D-A1F6-2D9C5E70B1C1
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = BluelineKeyInputDxeEntry
+
+[Sources]
+  BluelineKeyInputDxe.c
+  BluelineSpmiKeys.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  BaseLib
+  DevicePathLib
+  UefiRuntimeServicesTableLib
+  BaseMemoryLib
+  DebugLib
+  MemoryAllocationLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiLib
+
+[Protocols]
+  gEfiSimpleTextInProtocolGuid                  ## PRODUCES
+  gEfiDevicePathProtocolGuid                    ## PRODUCES
+
+[Guids]
+  gEfiEventExitBootServicesGuid                 ## CONSUMES
+  gEfiGlobalVariableGuid                        ## PRODUCES
+
+[Depex]
+  gEfiTimerArchProtocolGuid AND gEfiVariableArchProtocolGuid AND gEfiVariableWriteArchProtocolGuid

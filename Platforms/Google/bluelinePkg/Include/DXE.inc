@@ -106,4 +106,6 @@
 !if $(BLUELINE_VENDOR_HW) == 0
   # Without the stock drivers no RAM partition table is read: DRAM comes from the FDT ABL passes in x0.
   INF bluelinePkg/Drivers/BluelineBootMemoryDxe/BluelineBootMemoryDxe.inf
+  # Nor is there a ButtonsDxe: power and volume keys straight from the PM8998 over the SPMI arbiter.
+  INF bluelinePkg/Drivers/BluelineKeyInputDxe/BluelineKeyInputDxe.inf
 !endif
